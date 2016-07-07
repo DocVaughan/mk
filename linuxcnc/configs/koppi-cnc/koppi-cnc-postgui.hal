@@ -37,19 +37,19 @@ net estop-loop iocontrol.0.user-enable-out iocontrol.0.emc-enable-in
 # Probe Pin Inputs
 ######################################################################
 
-# link probe-pin-in signal to motion.probe-input pin
+## link probe-pin-in signal to motion.probe-input pin
 
 # G38.x uses the value on this pin to determine when the probe has
 # made contact: TRUE  for probe contact closed (touching),
 #               FALSE for probe contact open.
 
-#loadrt debounce
-#addf debounce.0 servo-thread
-#setp debounce.0.delay  10
+loadrt debounce
+addf debounce.0 servo-thread
+setp debounce.0.delay  10
 
-#net probe-pin-in         => debounce.0.0.in
-#net probe-debounce-in    <= debounce.0.0.out
-#net probe-debounce-in    => motion.probe-input
+net probe-pin-in         => debounce.0.0.in
+net probe-debounce-in    <= debounce.0.0.out
+net probe-debounce-in    => motion.probe-input
 
 # link probe-debounce-in signal to pyvcp ui element
 #linksp probe-debounce-in => pyvcp.probe-status

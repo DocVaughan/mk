@@ -40,7 +40,7 @@ net spindle-velocity encoder.0.velocity => motion.spindle-speed-in
 net spindle-index-enable encoder.0.index-enable <=> motion.spindle-index-enable
 
 # connect the HAL encoder inputs to the real encoder.
-net spindle-phase-a encoder.0.phase-A <= lcec.0.8.din-0
+net spindle-phase-a encoder.0.phase-A <= lcec.0.din2.din-0
 
 # net for the spindle speed out
 net spindle-cmd <= motion.spindle-speed-out-abs

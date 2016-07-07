@@ -15,7 +15,8 @@ try:
     launcher.check_installation()
     launcher.cleanup_session()
     launcher.start_process("configserver ~/Machineface ~/Cetus/")
-    launcher.start_process('linuxcnc -v -d koppi-cnc.ini')
+    launcher.start_process('linuxcnc koppi-cnc.ini')
+    #launcher.start_process('linuxcnc -v -d koppi-cnc.ini')
 except subprocess.CalledProcessError:
     launcher.end_session()
     sys.exit(1)
